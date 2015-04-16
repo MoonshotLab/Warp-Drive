@@ -1,6 +1,7 @@
 var Universe = function(opts){
   for(var key in opts){ this[key] = opts[key]; }
   this.dimensions = [];
+  this.$dimensions = $('#dimensions');
 
   return this;
 };
@@ -25,10 +26,33 @@ Universe.prototype.addDimension = function(dimension){
 
 // draw all dimensions to the screen
 Universe.prototype.draw = function(){
-  var html = '';
-  this.dimensions.forEach(function(dimension){
-    html += dimension.html;
-  });
+  var self = this;
 
-  $('#dimensions').html(html);
+  var scheduleShow = function(i, dimension){
+    setTimeout(function(){
+      $(dimension).addClass('show');
+    }, i*50);
+  };
+
+  var scheduleHide = function(i, dimension){
+    setTimeout(function(){
+      $(dimension).removeClass('show');
+    }, i*50);
+  };
+
+  // hide the dimensions
+  this.$dimensions.find('.dimension').each(scheduleHide);
+
+  // show the dimensions
+  setTimeout(function(){
+    // create the html to redraw the dimensions
+    var html = '';
+    self.dimensions.forEach(function(dimension){ html += dimension.html; });
+    self.$dimensions.html(html);
+
+    // wait, then animate
+    setTimeout(function(){
+      self.$dimensions.find('.dimension').each(scheduleShow);
+    }, 1);
+  }, 400);
 };

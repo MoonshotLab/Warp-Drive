@@ -1,8 +1,8 @@
 var opts = {
-  maxDimensions         : 6,
+  maxDimensions         : 3,
   dimensionColumnCount  : 3,
   dimensionRowCount     : 3,
-  shapes                : ['square', 'triangle', 'circle'],
+  shapes                : ['a', 'b', 'c'],
   shapesPerDimension    : 1
 };
 
@@ -66,14 +66,14 @@ universe.draw();
 
 
 // create new dimensions at an increasing rate
-createDimension(2000, createDimension);
+createDimension(3000, createDimension);
 function createDimension(timeout, next){
   setTimeout(function(){
     realityCheck(addDimension());
     universe.draw();
 
     var newTimeout = timeout - 25;
-    if(newTimeout < 250) newTimeout = 250;
+    if(newTimeout < 500) newTimeout = 500;
     next(newTimeout, createDimension);
   }, timeout);
 }

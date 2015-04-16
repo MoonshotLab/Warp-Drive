@@ -35,7 +35,7 @@ var Reality = function(opts){
       for(var j=0; j<self.columnCount; j++){
         var klass = 'class="x' + j + '-y' + i + '"';
         self.html += '<td ' + klass + ' style="width: ' + 100/self.columnCount + '%; height:' + self.cellHeight + 'px">';
-        if(i === 0 && j === 0) self.html += '<div class="shape square"></div>';
+        if(i === 0 && j === 0) self.html += '<div class="shape ' + self.shape + '"></div>';
         else self.html += '&nbsp;';
         self.html += '</td>';
       }
@@ -109,7 +109,7 @@ Reality.prototype.shapeShift = function(keyCode){
   }
 
   this.shape = this.shapes[nextIndex];
-  this.$dom.find('.shape').removeClass('square circle triangle');
+  this.$dom.find('.shape').removeClass('a b c');
   this.$dom.find('.shape').addClass(this.shape);
 };
 

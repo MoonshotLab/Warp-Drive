@@ -31,10 +31,19 @@ html, body{
   -webkit-perspective: 500px;
 }
 #reality table{
-  background-color: rgba(255,255,255,.3);
+  background-color: rgba(255,255,255,.1);
 }
 #dimensions{
   float: left;
+}
+.dimension{
+  -webkit-transition: linear all .2s;
+  -webkit-transform: scale(1.5);
+  opacity: 0;
+}
+.dimension.show{
+  opacity: 1;
+  -webkit-transform: scale(1);
 }
 
 
@@ -43,11 +52,10 @@ table{
   display: inline-block;
   border-collapse: collapse;
   -webkit-transform: rotateY(-30deg);
-  background-color: rgba(255,255,255,.1);
 }
 
 td{
-  border: 1px solid rgba(255,255,255,.2);
+  border: 1px solid #333333;
   text-align: center;
   padding: 0;
 }
@@ -57,15 +65,24 @@ td{
 td .shape{
   width: 75%;
   height: 75%;
+  box-sizing: border-box;
   margin: auto;
 }
-td .square{
-  background-color: red;
+td .a{
+  border: 5px solid #FF358B;
 }
-td .triangle{
-  background-color: green;
+td .b{
+  border: 5px solid #01B0F0;
 }
-td .circle{
-  border-radius: 50px;
-  background-color: blue;
+td .c{
+  border: 5px solid #AEEE00;
+}
+#reality table td .a{
+  background-color: #FF358B;
+}
+#reality table td .b{
+  background-color: #01B0F0;
+}
+#reality table td .c{
+  background-color: #AEEE00;
 }
