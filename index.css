@@ -1,0 +1,71 @@
+html, body{
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica;
+  background-color: black;
+  color: white;
+  overflow: hidden;
+}
+
+
+
+#score{
+  position: absolute;
+  font-size: 150%;
+  bottom: 0;
+}
+
+
+
+#universe{
+  width: 90%;
+  height: 95%;
+  margin: auto;
+  padding-top: 5%;
+}
+
+
+
+#reality, .dimension{
+  float: left;
+  -webkit-perspective: 500px;
+}
+#reality table{
+  background-color: rgba(255,255,255,.3);
+}
+#dimensions{
+  float: left;
+}
+
+
+table{
+  width: 100%;
+  display: inline-block;
+  border-collapse: collapse;
+  -webkit-transform: rotateY(-30deg);
+  background-color: rgba(255,255,255,.1);
+}
+
+td{
+  border: 1px solid rgba(255,255,255,.2);
+  text-align: center;
+  padding: 0;
+}
+
+
+
+td .shape{
+  width: 75%;
+  height: 75%;
+  margin: auto;
+}
+td .square{
+  background-color: red;
+}
+td .triangle{
+  background-color: green;
+}
+td .circle{
+  border-radius: 50px;
+  background-color: blue;
+}
